@@ -96,17 +96,18 @@
 
     <h3>All Complaints</h3>
     <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Priority</th>
-                <th>Status</th>
-                <th>Truth %</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+     <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Priority</th>
+        <th>Status</th>
+        <th>Risk Level</th>
+        <th>Action</th>
+    </tr>
+</thead>
         <tbody id="adminTableBody"></tbody>
     </table>
 </div>
@@ -117,7 +118,7 @@
         <h3>Admin Login</h3>
         <input type="text" id="adminUser" placeholder="Username">
         <input type="password" id="adminPass" placeholder="Password">
-        <button id="loginAdmin">Login</button>
+        <button id="loginAdmin" type="button">Login</button>
         <button id="closeModal">Cancel</button>
         <p id="loginError"></p>
     </div>
@@ -125,4 +126,5 @@
 
 <script src="script.js"></script>
 </body>
+
 </html>
