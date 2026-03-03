@@ -185,7 +185,27 @@ body.dark .admin-top-actions button {
 body.dark .modal-content {
     background: #1e293b;
 }
+/* ============================= */
+/* Responsive Table Fix */
+/* ============================= */
+
+.container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    white-space: nowrap;
+}
 
 body.dark #loginError {
     color: #ff6b6b;
+
 }
