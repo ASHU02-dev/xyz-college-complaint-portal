@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Institution Complaint Management System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="logo-section">
+        <h2>XYZ College</h2>
+        <p>Complaint & Grievance Management Portal</p>
+    </div>
+    <div class="header-actions">
+        <label class="theme-switch">
+    <input type="checkbox" id="darkToggle">
+    <span class="slider"></span>
+</label>
+        <button id="adminBtn">Admin Login</button>
+        
+    </div>
+</header>
+
+<!-- STUDENT SECTION -->
+<div class="container" id="studentSection">
+    <h2>Submit Complaint</h2>
+    <form id="complaintForm">
+        <label>Full Name</label>
+        <input type="text" id="name" placeholder="Enter full name" required>
+
+        <label>College Email</label>
+        <input type="email" id="email" placeholder="Enter college email" required>
+
+        <label>Complaint Category</label>
+        <select id="priority" required>
+            <option value="High">Harassment</option>
+            <option value="Medium">Academic Issue</option>
+            <option value="Low">Infrastructure</option>
+            <option value="Medium">Examination</option>
+            <option value="Low">Other</option>
+        </select>
+
+        <label>Complaint Description</label>
+        <textarea id="complaintText" rows="6" placeholder="Provide detailed explanation..." required></textarea>
+
+        <label>
+            <input type="checkbox"> Submit as Anonymous
+        </label>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+    <h3>Your Complaints</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Truth %</th>
+            </tr>
+        </thead>
+        <tbody id="userTableBody"></tbody>
+    </table>
+</div>
+
+<!-- ADMIN SECTION -->
+<div class="container" id="adminSection" style="display:none;">
+    <div class="admin-top-actions">
+        <input type="text" id="searchInput" placeholder="Search by Email or ID">
+        <select id="filterStatus">
+            <option value="All">All Status</option>
+            <option value="Under Review">Under Review</option>
+            <option value="Investigating">Investigating</option>
+            <option value="Resolved">Resolved</option>
+        </select>
+        <select id="filterPriorityAdmin">
+            <option value="All">All Priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+        </select>
+        <button id="exportPDF">Export PDF</button>
+        <button id="exportCSV">Export CSV</button>
+    </div>
+
+    <h3>Admin Dashboard</h3>
+    <div class="dashboard">
+        <canvas id="statusChart"></canvas>
+        <canvas id="priorityChart"></canvas>
+    </div>
+
+    <h3>All Complaints</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Truth %</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="adminTableBody"></tbody>
+    </table>
+</div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div id="adminModal" class="modal">
+    <div class="modal-content">
+        <h3>Admin Login</h3>
+        <input type="text" id="adminUser" placeholder="Username">
+        <input type="password" id="adminPass" placeholder="Password">
+        <button id="loginAdmin">Login</button>
+        <button id="closeModal">Cancel</button>
+        <p id="loginError"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
